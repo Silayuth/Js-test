@@ -1,7 +1,7 @@
 // Array to store products
 let products = [];
 let cart = [];
-let editIndex = -1; // To track the product being edited
+
 
 function createProduct() {
     const productName = document.getElementById('productName').value;
@@ -50,40 +50,6 @@ function displayProducts() {
     });
 }
 
-
-
-function updateProduct() {
-    const productName = document.getElementById('productName').value;
-    const price = document.getElementById('price').value;
-    const imageInput = document.getElementById('imageInput');
-    const imageFile = imageInput.files[0];
-
-    if (!productName || !price) {
-        alert("Please fill out all fields.");
-        return;
-    }
-
-    const product = products[editIndex];
-    product.name = productName;
-    product.price = parseFloat(price);
-
-    if (imageFile) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            product.image = e.target.result;
-            displayProducts();
-            clearForm();
-        };
-        reader.readAsDataURL(imageFile);
-    } else {
-        displayProducts();
-        clearForm();
-    }
-
-    document.getElementById('createButton').style.display = 'inline';
-    document.getElementById('updateButton').style.display = 'none';
-    editIndex = -1;
-}
 
 function removeProduct(index) {
     products.splice(index, 1);

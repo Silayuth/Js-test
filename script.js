@@ -43,21 +43,14 @@ function displayProducts() {
             <p>${product.name}</p>
             <p>$${product.price.toFixed(2)}</p>
             <button onclick="addToCart(${index})">Add to Cart</button>
-            <button onclick="editProduct(${index})">Edit</button>
+            
             <button onclick="removeProduct(${index})">Remove</button>
         `;
         productDashboard.appendChild(productDiv);
     });
 }
 
-function editProduct(index) {
-    const product = products[index];
-    document.getElementById('productName').value = product.name;
-    document.getElementById('price').value = product.price;
-    document.getElementById('createButton').style.display = 'none';
-    document.getElementById('updateButton').style.display = 'inline';
-    editIndex = index; // Store the index of the product being edited
-}
+
 
 function updateProduct() {
     const productName = document.getElementById('productName').value;

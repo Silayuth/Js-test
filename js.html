@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+
+        body {
+            background-color: rgb(112, 112, 112);
+        }
+
+        .product-dashboard {
+            border: 2px solid green;
+            padding: 10px;
+        }
+        .product-form {
+            border: 2px solid orange;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .cart-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <!-- Form for adding products -->
+    <div>
+        <h3>Add Item for selection <span style="color:red;">Product Form</span></h3>
+        <input type="text" id="productName" placeholder="Product Name">
+        <input type="number" id="price" placeholder="Price">
+        <input type="file" id="imageInput" accept="image/*" >
+        <button onclick="createProduct()">Create Product</button>
+    </div>
+
+    <!-- Product Dashboard -->
+    <div id="productDashboard" class="product-dashboard">
+        <h4>Product Dashboard</h4>
+        <!-- Dynamically added products will appear here -->
+    </div>
+
+    <!-- Shopping Cart -->
+    <div class="product-form">
+        <h3>Your Cart <span style="color:orange;">Product Form</span></h3>
+        <div id="cartItems">
+            <!-- Cart items will be added here -->
+        </div>
+        <button onclick="calculateFinalPrice()">Calculate Final Price</button>
+        <button onclick="removeAllFromCart()">Remove All</button>
+        <h3>You have to pay: <span id="finalPrice">0</span></h3>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
